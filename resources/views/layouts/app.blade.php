@@ -95,6 +95,7 @@
 
 
         <main class="py-4" >
+            <div class="container" id="resl"></div>
             @yield('content')
         </main>
     </div>
@@ -112,7 +113,11 @@ if (res.length == 0) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("searchresult").innerHTML = this.responseText;
+     // $('#searchresult').html(JSON.parse(this.responseText)) ;
+     $('#resl').html('');
+        $('#resl').html(this.response);
+
+      //  console.log( this.response);
       }
     };
     xmlhttp.open("GET",url+'/'+res, true);
