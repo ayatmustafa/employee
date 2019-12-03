@@ -190,10 +190,10 @@ class EmployeeController extends Controller
         return view("search",compact("employee"));
 
     }
-    function searchkey($searchkey){
+    function searchkey($searchkey=null){
         $employee=Employee::where("name","like","$searchkey%")->paginate(6);
         Session()->flash('message', 'employee that searched '.$searchkey.' succesfully!');
-        return view("search",compact("employee"));
+        return $employee;
 
     }
 
